@@ -17,6 +17,25 @@ app.use(cookieparser())
 
 mongoose.connect("mongodb://127.0.0.1:27017/Customer");
 
+const verifyUser = (req,res,next) => {
+
+    const token = req.cookies.token;
+    console.log(token);
+    if(!token) {
+        return res.json("The token was not available")
+    }else {
+        jwt.verify(token, serverConfig.JWT_SECRET_KEY, (err, decode) => {
+            if(err) return res.json("Token is wrong")
+            next();
+        })
+    }
+}
+
+app.get('/home', verifyUser, (req,res) => {
+    
+    return res.json("Success")
+})
+
 app.post('/login', (req,res) => {
     const {email, password} = req.body;
     CustomerModel.findOne({email: email})

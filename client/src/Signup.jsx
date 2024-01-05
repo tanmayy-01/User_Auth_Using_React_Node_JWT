@@ -18,7 +18,6 @@ function Signup () {
           navigate('/login');
         } catch (error) {
           console.error(error);
-          // Handle error and show appropriate messages to the user.
         }
       };
       
