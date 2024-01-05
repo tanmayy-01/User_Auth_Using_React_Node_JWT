@@ -9,7 +9,7 @@ function Login () {
     const [password, setPassword] = useState()
     const navigate = useNavigate()
 
-    axios.defaults.withCredentials = true;  
+   // axios.defaults.withCredentials = true;  
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -57,7 +57,7 @@ function Login () {
                     <button type="submit" className="btn btn-success w-100 rounded-0">Login</button>
                     </form>
                     <p>Don't have an Account ?</p>
-                    <Link to="/register" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none">Login</Link>
+                    <Link to="/register" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none">Register</Link>
                 
             </div>
         </div>
