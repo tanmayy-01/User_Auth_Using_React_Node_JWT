@@ -3,10 +3,17 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const CustomerModel = require('./models/Customer')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const cookieparser = require('cookie-parser')
+const serverConfig = require('./config/server-config')
 
 const app = express()
 app.use(express.json()) // this will transport our data from frontend to backend in json format
-app.use(cors())
+app.use(cors({
+    origin: ["http://localhost:5173"],
+    credentials: true,
+}))
+app.use(cookieparser())
 
 mongoose.connect("mongodb://127.0.0.1:27017/Customer");
 
@@ -16,7 +23,10 @@ app.post('/login', (req,res) => {
     .then(user => {
         if(user){
             bcrypt.compare(password, user.password, (err,response) => {
-                if(response) {res.json("Success")}
+                if(response) {
+                    const token = jwt.sign({email: user.email}, )
+                    res.json("Success")
+                }
                 else {res.json("The Password is incorrect")}
             })
         }else {

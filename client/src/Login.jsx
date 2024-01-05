@@ -9,6 +9,8 @@ function Login () {
     const [password, setPassword] = useState()
     const navigate = useNavigate()
 
+    axios.defaults.withCredentials = true;  
+
     const handleSubmit = (e) => {
         e.preventDefault();
           axios.post('http://localhost:3001/login', { email, password })
