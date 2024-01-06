@@ -35,5 +35,21 @@
  - Generated the token and stored in the cookies.
  - For the token verification or say user verification I have created middleware `verifyUser` for it in the server side.
  
+ ## Output screenshots are attach below for reference: 
+ 1. Register:
+    
+ ![Screenshot 2024-01-06 133034](https://github.com/tanmayy-01/User_Auth_Using_React_Node_JWT/assets/80145478/59d64076-6895-4970-a840-2956dd7e99fe)
 
- 
+ 2. Login:
+    
+![Screenshot 2024-01-06 133126](https://github.com/tanmayy-01/User_Auth_Using_React_Node_JWT/assets/80145478/30637c31-a5f9-4a6d-8773-459a3418c1d1)
+
+ 3. User Profile:
+    
+![Screenshot 2024-01-06 135336](https://github.com/tanmayy-01/User_Auth_Using_React_Node_JWT/assets/80145478/ab4c142c-f0a5-4a63-810a-8fc1085c6896)
+
+ 4. Token:
+    
+![Screenshot 2024-01-06 135413](https://github.com/tanmayy-01/User_Auth_Using_React_Node_JWT/assets/80145478/d5130192-d2c7-4f73-bc21-19f7bf67991a)
+
+    
