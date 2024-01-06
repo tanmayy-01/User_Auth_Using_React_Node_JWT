@@ -7,6 +7,7 @@ function Login () {
     
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [userDetails, setUserDetails] = useState(null);
     const navigate = useNavigate()
 
     axios.defaults.withCredentials = true;  
@@ -16,8 +17,10 @@ function Login () {
           axios.post('http://localhost:3001/login', { email, password })
           .then(result =>{ 
             console.log(result)
-            if(result.data == "Success") {
-                navigate('/home')
+            if(result.data.message == "Success") {
+                const user = result.data.user;
+                setUserDetails(user);
+                navigate('/home',{state:{userDetails:user}})
             }
            })
            .catch(err => console.log(err))

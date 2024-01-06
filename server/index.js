@@ -33,7 +33,15 @@ const verifyUser = (req,res,next) => {
 
 app.get('/home', verifyUser, (req,res) => {
     
-    return res.json("Success")
+    const user = req.user;
+    const responseObject = {
+        success: true,
+        message: "Success",
+        
+      };
+    
+      return res.json(responseObject);
+    // return res.json("Success")
 })
 
 app.post('/login', (req,res) => {
@@ -44,8 +52,16 @@ app.post('/login', (req,res) => {
             bcrypt.compare(password, user.password, (err,response) => {
                 if(response) {
                     const token = jwt.sign({email: user.email}, serverConfig.JWT_SECRET_KEY)
+                    const responseObject = {
+                        success: true,
+                        message: "Success",
+                        user: {
+                          email: user.email,
+                        },
+                      };
                     res.cookie("token", token);
-                    res.json("Success")
+                    res.json(responseObject);
+                   // res.json("Success")
                 }
                 else {res.json("The Password is incorrect")}
             })
