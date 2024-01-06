@@ -25,13 +25,16 @@ function Home() {
 
 
     return (
-        <div>
-             <h2>Welcome to the Home Page</h2>
+        <div >
+            <nav className="navbar navbar-dark bg-dark text-white justify-content-center align-items-center">
+                 <h2 >Welcome to the Amazon Page</h2>
+            </nav>
+             
              {userDetails && (
-        <div>
+        <div className="bg-white p-3 rounded border w-100 bg-light">
           <p>User Details:</p>
           <p>Email: {userDetails.email}</p>
-          {/* Display other user details as needed */}
+          
         </div>
       )}
         </div>
